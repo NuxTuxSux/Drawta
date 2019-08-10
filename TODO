@@ -1,0 +1,21 @@
+TODO
+
+    · Fare un controller per il tab-group
+    · markdown text use
+    · jpeg upload
+
+FUND
+    · separare le fasi di utilizzo (aggiunta files-estrazione)
+
+    · abilitare/disabilitare pulsanti all'occorrenza
+    · mettere in basso una status bar
+    · alert se provo a salvare prima di aver caricato
+        l'immagine - oppure abilitare il pulsante solo
+        quando l'ho caricata
+
+---- gui
+    · renderlo più carino all'apertura ?
+
+UI
+ - text/files rimangono attivi
+ - i pulsanti _sotto_ "DATA" devono essere riabilitati dopo il caricamento dell'immagine

@@ -1,0 +1,25 @@
+{
+  "name": "img-writer",
+  "version": "1.0.1",
+  "description": "Che ne so.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Tancredi",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "canvas": "^1.6.12",
+    "electron-ui-kit": "^1.0.0",
+    "get-pixels": "^3.3.2",
+    "save-pixels": "^2.3.4",
+    "stream": "0.0.2",
+    "stream-buffers": "^3.0.2",
+    "tar": "^4.4.6",
+    "zeros": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "^2.0.18",
+    "electron-packager": "^12.1.2"
+  }
+}

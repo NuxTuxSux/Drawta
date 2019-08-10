@@ -1,0 +1,396 @@
+<html>
+    <head>
+        <title>Img Writer</title>
+        
+        <!-- Stylesheets -->
+        <!-- <link rel="stylesheet" href="css/photon.min.css"> -->
+        <link rel="stylesheet" href="css/main.css">
+        <!-- <link rel="stylesheet" href="css/main.min.css"> -->
+
+        <!-- <script src="js/ui.js"></script> -->
+
+        <script>
+            const {ipcRenderer} = require('electron')
+    
+            // let img, snd
+
+            let filesTable
+
+            //let dataToWrite = null
+
+            window.onload = function () {
+                img = document.getElementById('img')
+                snd = document.getElementById('secondTab')
+                filesBtns = document.getElementById('filesBtns')
+            }
+
+            function firstTabClick() {
+                document.querySelector('#firstTab').classList.remove('hidden');
+                document.querySelector('#secondTab').classList.add('hidden');
+                document.querySelector('#firstTabBtn').classList.add('btn-active');
+                document.querySelector('#secondTabBtn').classList.remove('btn-active');
+                document.querySelector('#subnavDataTab').classList.add('hidden');
+                document.querySelector('#subnavFileTab').classList.remove('hidden');
+            }
+            
+            function secondTabClick() {
+                document.querySelector('#firstTab').classList.add('hidden');
+                document.querySelector('#secondTab').classList.remove('hidden');
+                document.querySelector('#firstTabBtn').classList.remove('btn-active');
+                document.querySelector('#secondTabBtn').classList.add('btn-active');
+                document.querySelector('#subnavDataTab').classList.remove('hidden');
+                document.querySelector('#subnavFileTab').classList.add('hidden');
+            }
+
+
+            // function encodeTabClick() {
+            //     snd.style['display'] = null
+            //     img.style['display'] = 'none'
+            //     if (textFilesRadio.state == 'files')
+            //         filesBtns.style['display'] = null
+            //     document.getElementById('selectTab').className = "btn"
+            //     document.getElementById('encodeTab').className = "btn btn-active"
+            // }
+            // function selectTabClick() {
+            //     snd.style['display'] = 'none'
+            //     img.style['display'] = null
+            //     filesBtns.style['display'] = 'none'
+            //     document.getElementById('encodeTab').className = "btn"
+            //     document.getElementById('selectTab').className = "btn btn-active"
+            // }
+
+            // Definiamo una classe che gestisca le righe nella tabella
+
+            class TableCtrl {
+            
+                constructor (tbl, flds = null) {
+                    this.table = tbl
+                    this.length = 0
+                    this.rows = []
+                    this._selectedItems = []
+
+                    if (flds) {
+                        const thead = document.createElement('thead')
+                        const tr = document.createElement('tr')
+                        var th
+                        for (let i = 0; i < flds.length; i++) {
+                            th = document.createElement('th')
+                            th.innerHTML = flds[i]
+                            tr.appendChild(th)
+                        }
+                        thead.appendChild(tr)
+                        tbl.appendChild(thead)
+                    }
+                    tbl.appendChild(document.createElement('tbody'))
+                }
+
+                addRow (rowList) {
+                    let row = document.createElement('tr')
+                    let cell
+                    this.rows.push(rowList)
+                    const _selectedItems = this._selectedItems
+                    _selectedItems.push(false)
+                    
+                    let N = this.rows.length
+
+                    for (let i = 0; i < rowList.length; i++) {
+                        cell = document.createElement('td')
+                        cell.innerHTML = rowList[i]
+                        row.appendChild(cell)
+                    }
+                    row.selected = false
+                    row.index = N
+                    
+                    row.onclick = function () {
+                        if (this.selected) {
+                            this.style['color'] = null
+                            this.style['background-color'] = N%2==0?'#f5f5f4':'#fff'
+                            this.selected = false
+                        } else {
+                            this.style['color'] = '#fff'
+                            this.style['background-color'] = '#116cd6'
+                            this.selected = true
+                        }
+                        _selectedItems[N-1] = !_selectedItems[N-1]
+                    }
+                    this.table.children[1].appendChild(row)
+                }
+
+                
+                clear () {
+                    this.rows = []
+                    this._selectedItems = []
+                    this.length = 0
+                    var tbody = this.table.children[1]
+                    while (tbody.firstChild)
+                        tbody.removeChild(tbody.firstChild)
+                }
+
+                selectedItems() {
+                    return this.rows.filter((r,i) => this._selectedItems[i])
+                }
+
+                getCompletePaths() {
+                    // sistemare!!
+                    return this.rows.map(r => [r[1],r[0]].join('/'))
+                }
+            }
+
+            class RadioBtnCtrl {
+
+                constructor (btnGroup) {
+                    this.btnGroup = btnGroup
+                    this.buttons = this.btnGroup.children
+                    this.stateIndex = 0
+                    this.state = this.buttons[0].value
+
+                    // bind onclick of buttons
+                    const btns = this.buttons
+                    let ctrl = this
+                    for (let i = 0; i < btns.length; i++)
+                        btns[i].onclick = function () {
+                            for (let j = 0; j < btns.length; j++) {
+                                if (j == i) {
+                                    btns[j].classList.add('active')
+                                } else {
+                                    btns[j].classList.remove('active')
+                                }
+                            }
+                            if (ctrl.stateIndex != i) {
+                                ctrl.stateIndex = i
+                                ctrl.state = ctrl.buttons[i].value
+                                ctrl.onchange()
+                            }
+
+                        }
+                }
+                
+                // override this
+                onchange() {
+                }
+
+            }
+
+        </script>
+        
+    </head>
+    <body>
+
+        <!-- bottom main bar -->
+        <ul class="tabBar" id="bottomTabBar">
+            <!-- <li id="stepsTab" class="btn btn-disabled">
+                1/2</li> -->
+            <li id="firstTabBtn" class="btn btn-active" onclick="firstTabClick()">
+                medium
+            </li>
+            
+            <li id="secondTabBtn" class="btn" onclick="secondTabClick()">
+                data
+            </li>
+        </ul>
+
+
+        <!-- bottom secondary bars -->
+
+        <!-- file upload -->
+        <ul class="tabBar tabBar-secondary left" id="subnavFileTab">
+            <button id="fileSelect" class="btn bt" onclick="ipcRenderer.send('open')">
+                <!-- <img src="img/folder.png" height="52px" width="52px" alt="folderIcon"> -->
+                Select file
+            </button>
+        </ul>
+
+        <!--Save/load image-->
+        <ul class="tabBar tabBar-secondary right hidden" id="subnavDataTab">
+            <button id="extractBtn" class="btn btn-disabled" onclick="loadBtn()" disabled>
+                Extract
+            </button>
+            <button id="writeBtn" class="btn btn-disabled" onclick="saveBtn()" disabled>
+                    Write
+            </button>
+        </ul>
+
+                                    
+        <div class="window-content">
+
+            <!-- image cover -->
+            <div id="imgCover" class="imageCover animated"></div>
+            
+            <ul id="topBar">
+                <center>
+                    <!-- <h3 id="windowTitle">ImgWriter</h3> -->
+                    <h3 id="windowTitle">Mediate</h3>
+                </center>
+                
+                <!-- button minimize window -->
+                <button onclick="window.minimize();" class="btn btn-minimize">-</button>
+                
+                <!-- button close window -->
+                <button onclick="window.close()" class="btn btn-close">+</button>
+            </ul>
+
+            <div class="tabs">
+
+                <div id="firstTab" class="firstTab tab">
+                    <!-- <img id="img" src="prova.jpeg" style='object-fit: contain;'> -->
+                    
+                    <!-- file selector -->
+                    <!-- <div id="fileSelect" class="tabBar-secondary" onclick="ipcRenderer.send('open')">
+                        <center>
+                            <img src="img/folder.png" height="52px" width="52px" alt="folderIcon">
+                            <div id="" class="btn btn-big">
+                                Select file
+                            </div>
+                        </center>
+                    </div> -->
+                </div>
+                
+                <div id="secondTab" class="secondTab tab hidden">
+                    
+                    <!--Text/Files Radio-->
+                    <div class="tab-flex-container" id="textFilesRadioBtn">
+                        <button class="btn btn-rounded btn-active" value="text">
+                            Text
+                        </button>
+                        <button class="btn btn-rounded" value="files">
+                            Files
+                        </button>
+                    </div>
+                    
+                    <div id="testo">
+                        <textarea name="Nome" id="textarea" class="tab-content" placeholder="Type here what you want to write into the image..." autofocus></textarea>
+                    </div>
+                    
+                    <!-- <div id="filesTableDiv" style="display:none"> -->
+                    <div id="filesTableDiv" class="hidden">
+                        <!--Files-Pan Buttons-->
+                        <!-- <div class="" id="filesBtns" style="display:none"> -->
+                        <div class="tab-flex-container hidden" id="filesBtns">
+                            <button class="btn btn-rounded" onclick="addBtn()">Add</button>
+                            <button class="btn btn-rounded" onclick="filesTable.clear()">Clear</button>
+                            <button class="btn btn-rounded" onclick="extractBtn()">Extract</button>
+                        </div>
+
+                        <!-- File list -->
+                        <!-- <table class="table-striped" id="filesTable"></!-->
+                        <table class="tab-content" id="filesTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Path</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Table Data</td>
+                                    <td>Table Data</td>
+                                    <td>Table Data</td>
+                                </tr>
+                                <tr>
+                                    <td>Table Data</td>
+                                    <td>Table Data</td>
+                                    <td>Table Data</td>
+                                </tr>
+                                <tr>
+                                    <td>Table Data</td>
+                                    <td>Table Data</td>
+                                    <td>Table Data</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                        
+                    <!--Save/load image-->
+                    <!-- <div class="btn-group btn-group-bottom">
+                        <button class="btn btn-disabled" onclick="saveBtn()" disabled>
+                            Write data
+                        </button>
+                        <button class="btn btn-disabled" onclick="loadBtn()" disabled>
+                            Extract data
+                        </button>
+                    </div> -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <script>
+            // filesTable = new TableCtrl(document.getElementById('filesTable'), ['Name', 'Path', 'Size'])            
+            filesTable = new TableCtrl(document.getElementById('filesTable'))            
+
+            textFilesRadio = new RadioBtnCtrl(document.getElementById('textFilesRadioBtn'))
+            
+
+            ipcRenderer.on('load', function (e, data) {
+                // img.setAttribute('src', data)
+                document.querySelector('#imgCover').style.backgroundImage = 'url(' + data + ')';
+            })
+
+            ipcRenderer.on('textRead', function (e, text) {
+                textarea.value = text
+            })
+
+            ipcRenderer.on('filesRead', function(e, filesList) {
+                filesTable.clear()
+                for (fileItem in filesList) {
+                    filesTable.addRow(filesList[fileItem])
+                }
+            })
+
+            ipcRenderer.on('addFile', function (e, rows) {
+                for (let i in rows)
+                    filesTable.addRow(rows[i])
+            })
+
+            textFilesRadio.onchange = function () {
+                if (textFilesRadio.state == 'text') {
+                    document.getElementById('testo').classList.remove('hidden')
+                    document.getElementById('filesTableDiv').classList.add('hidden')
+                    filesBtns.classList.add('hidden')
+                    // document.getElementById('testo').style['display'] = null
+                    // document.getElementById('filesTableDiv').style['display'] = 'none'
+                    // filesBtns.style['display'] = 'none'
+                } else {
+                    document.getElementById('testo').classList.add('hidden')
+                    document.getElementById('filesTableDiv').classList.remove('hidden')
+                    filesBtns.classList.remove('hidden')
+                    // document.getElementById('testo').style['display'] = 'none'
+                    // document.getElementById('filesTableDiv').style['display'] = null
+                    // filesBtns.style['display'] = snd.style['display']
+                }
+            }
+
+
+            function saveBtn() {
+                // invio il contenuto della textarea oppure la lista dei files, se la sbriga lui
+                if (textFilesRadio.state == 'text')
+                    ipcRenderer.send('saveImgTxt', textarea.value)
+                else    // !!!
+                    ipcRenderer.send('saveImgFiles', filesTable.getCompletePaths())
+            }
+
+            function loadBtn() {
+                if (textFilesRadio.state == 'text') {
+                    ipcRenderer.send('loadImgTxt')
+                } else {
+                    ipcRenderer.send('loadImgFiles')
+                }
+            }
+
+            function extractBtn() {
+                // fare in modo che estragga tutto?
+                ipcRenderer.send('extract', filesTable.getCompletePaths())
+            }
+
+            function addBtn() {
+                ipcRenderer.send('addFile')
+            }
+
+        </script>
+
+    </body>
+</html>
