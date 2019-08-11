@@ -18,4 +18,8 @@ FUND
 
 UI
  - text/files rimangono attivi
- - i pulsanti _sotto_ "DATA" devono essere riabilitati dopo il caricamento dell'immagine
+ - Eliminare le righe di prova nella tabella
+ - extract per quanto riguarda i files è forse fuorviante, visto che semplicemente legge i dati dalla cartella, forse andrebbe chiamato (sia per text che per files) load o read o decode
+ - sistemare i fonts
+ - la prima volta che apro l'immagine non la visualizza
+ - il blur quando l'immagine perde il focus è forse superfluo
