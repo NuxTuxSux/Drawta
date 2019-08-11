@@ -20,6 +20,9 @@ UI
  - text/files rimangono attivi
  - Eliminare le righe di prova nella tabella
  - extract per quanto riguarda i files è forse fuorviante, visto che semplicemente legge i dati dalla cartella, forse andrebbe chiamato (sia per text che per files) load o read o decode
- - sistemare i fonts
- - la prima volta che apro l'immagine non la visualizza
  - il blur quando l'immagine perde il focus è forse superfluo
+
+Bugs
+ - la prima volta che apro l'immagine non la visualizza
+ - sistemare i fonts
+ - rispondere bene al `Cancel` su un'operazione
