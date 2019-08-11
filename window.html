@@ -328,8 +328,12 @@
             
 
             ipcRenderer.on('load', function (e, data) {
-                // img.setAttribute('src', data)
+                //img.setAttribute('src', data)
                 document.querySelector('#imgCover').style.backgroundImage = 'url(' + data + ')';
+                document.querySelector('#extractBtn').classList.remove('btn-disabled');
+                document.querySelector('#writeBtn').classList.remove('btn-disabled');
+                document.querySelector('#extractBtn').disabled = false;
+                document.querySelector('#writeBtn').disabled = false;
             })
 
             ipcRenderer.on('textRead', function (e, text) {
