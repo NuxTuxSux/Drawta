@@ -91,6 +91,15 @@ function writeBytesToImage(buf) {
         return
     }
 
+
+    imgpath = dialog.showSaveDialog(window, { filters: [{name:'PNG Images', extensions:['png']}]})
+    
+    if (!imgpath) {
+        // user didn't choice any image for output
+        return
+    }
+    const outFile = fs.createWriteStream(imgpath)
+    
     // dapprima suppongo che la png abbia già il canale alpha!!
     var ch
     var px
@@ -126,8 +135,6 @@ function writeBytesToImage(buf) {
     }
 
     
-    imgpath = dialog.showSaveDialog(window, { filters: [{name:'PNG Images', extensions:['png']}]})
-    const outFile = fs.createWriteStream(imgpath)
     
     savePixels(imageData, "png").pipe(outFile)
 
