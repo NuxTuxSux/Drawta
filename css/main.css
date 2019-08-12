@@ -24,13 +24,35 @@ html, body {
     margin: 0;
     left: 0;
     top: 0;
-    background-image: url('bg.png');
     background-size: cover;
     background-position: center;
     z-index: 0;
+    background-image: url('bg.png');
     float: left;
     /* transition: filter 20s 0s; */
 }
+.imageCover.wall-1 {background-image: url('bg/1.jpeg');}
+.imageCover.wall-2 {background-image: url('bg/2.jpeg');}
+.imageCover.wall-3 {background-image: url('bg/3.jpeg');}
+.imageCover.wall-4 {background-image: url('bg/4.jpeg');}
+.imageCover.wall-5 {background-image: url('bg/5.jpeg');}
+.imageCover.wall-6 {background-image: url('bg/6.jpeg');}
+.imageCover.wall-7 {background-image: url('bg/7.jpeg');}
+.imageCover.wall-8 {background-image: url('bg/8.jpeg');}
+.imageCover.wall-9 {background-image: url('bg/9.jpeg');}
+.imageCover.wall-10 {background-image: url('bg/10.jpeg');}
+.imageCover.wall-11 {background-image: url('bg/11.jpeg');}
+.imageCover.wall-12 {background-image: url('bg/12.jpeg');}
+.imageCover.wall-13 {background-image: url('bg/13.jpeg');}
+.imageCover.wall-14 {background-image: url('bg/14.jpeg');}
+.imageCover.wall-15 {background-image: url('bg/15.jpeg');}
+.imageCover.wall-16 {background-image: url('bg/16.jpeg');}
+.imageCover.wall-17 {background-image: url('bg/17.jpeg');}
+.imageCover.wall-18 {background-image: url('bg/18.jpeg');}
+.imageCover.wall-19 {background-image: url('bg/19.jpeg');}
+.imageCover.wall-20 {background-image: url('bg/20.jpeg');}
+
+
 /* .imageCover.animated { */
 .imageCover.animated,
 .imageCover.blur {

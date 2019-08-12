@@ -28,13 +28,17 @@
                 rand = Math.random()
                 ranDeg = rand*360
                 if(rand > .3 | rand < .7) {
-                    pcInvert = 60 + rand*60;
+                    pcInvert = 0 + rand*20;
                     contrast = 100 + rand*100;
                 }else {
-                    pcInvert = rand*100
+                    pcInvert = rand*40
                     contrast = 50 + rand*100;
                 }
+                // rand select from css/bg folder
+                wallpaperNumber = Math.ceil(rand*20);
+
                 cover.style.filter = 'hue-rotate('+ ranDeg +'deg) invert('+ pcInvert +'%) contrast('+ contrast +'%)';
+                cover.style.backgroundImage = "url('css/bg/"+ wallpaperNumber +".jpeg')";
             }
 
             function firstTabClick() {
