@@ -30,7 +30,7 @@ html, body {
     background-image: url('bg.png');
     float: left;
     /* background: red; */
-    /* transition: filter 20s 0s; */
+    transition: filter 2s 0s;
 }
 /* .imageCover.wall-1 {background-image: url('bg/1.jpeg');}
 .imageCover.wall-2 {background-image: url('bg/2.jpeg');}
