@@ -29,9 +29,10 @@ html, body {
     z-index: 0;
     background-image: url('bg.png');
     float: left;
+    /* background: red; */
     /* transition: filter 20s 0s; */
 }
-.imageCover.wall-1 {background-image: url('bg/1.jpeg');}
+/* .imageCover.wall-1 {background-image: url('bg/1.jpeg');}
 .imageCover.wall-2 {background-image: url('bg/2.jpeg');}
 .imageCover.wall-3 {background-image: url('bg/3.jpeg');}
 .imageCover.wall-4 {background-image: url('bg/4.jpeg');}
@@ -50,7 +51,7 @@ html, body {
 .imageCover.wall-17 {background-image: url('bg/17.jpeg');}
 .imageCover.wall-18 {background-image: url('bg/18.jpeg');}
 .imageCover.wall-19 {background-image: url('bg/19.jpeg');}
-.imageCover.wall-20 {background-image: url('bg/20.jpeg');}
+.imageCover.wall-20 {background-image: url('bg/20.jpeg');} */
 
 
 /* .imageCover.animated { */

@@ -24,18 +24,14 @@
                 filesBtns = document.getElementById('filesBtns')
                 cover = document.querySelector('#imgCover')
 
-                // set of random parametric filters (totally arbitrary) on cover (default) image(s?)
-                rand = Math.random()
-                ranDeg = rand*300
-                if(rand > .3 | rand < .7) {
-                    pcInvert = 0 + rand*20;
-                    contrast = 100 + rand*100;
-                }else {
-                    pcInvert = rand*40
-                    contrast = 20 + rand*100;
-                }
+                // set of random parametric filters (totally arbitrary) on cover (default) image(s)
+
+                ranDeg = Math.floor(Math.random()*360)
+                contrast = 65 + Math.floor(Math.random()*70);
+                pcInvert = (70 + Math.floor(Math.random()*100)/2)%100
+                
                 // rand select from css/bg folder
-                wallpaperNumber = Math.ceil(rand*20);
+                wallpaperNumber = Math.ceil(Math.random()*20);
 
                 cover.style.filter = 'hue-rotate('+ ranDeg +'deg) invert('+ pcInvert +'%) contrast('+ contrast +'%)';
                 cover.style.backgroundImage = "url('css/bg/"+ wallpaperNumber +".jpeg')";
