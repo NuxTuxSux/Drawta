@@ -3,15 +3,18 @@ TODO
 
 OPT
  · mettere in basso una status bar
- · extract per quanto riguarda i files è forse fuorviante, visto che semplicemente legge i dati dalla cartella, forse andrebbe chiamato (sia per text che per files) load o read o decode
  · la tabella dei files si estende troppo sia verticalmente che orizzontalmente regardless di quel ch'ha tutt'attorno
 
 Bugs
  · sistemare i fonts
- · partire con il pulsante text "ingrandito", essendo la prima scelta
  · c'è la dimensione minima della tabella ma non della finestra
  · la tabella si estende fino a sovrapporsi con i pulsanti più alti, meglio optare per lo scrolling
 
 Future
  · markdown text use
  · cifratura dei contenuti (nella UI serve aggiungere una finestra o usiamo una dialog dopo la finestra di salvataggio con la possibilità di pwd vuota per nessuna pwd)
+
+
+DONE
+ · partire con il pulsante text "ingrandito", essendo la prima scelta
+ · extract per quanto riguarda i files è forse fuorviante, visto che semplicemente legge i dati dalla cartella, forse andrebbe chiamato (sia per text che per files) load o read o decode

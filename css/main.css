@@ -142,6 +142,7 @@ html, body {
 .tab-flex-container > .btn {
     flex: 1;
 }
+.tab-flex-container > .btn.active,
 .tab-flex-container > .btn:hover,
 .tab-flex-container > .btn:active {
     flex: 1.23;
@@ -287,6 +288,7 @@ button.btn {
     background: rgba(0, 0, 0, .5);
 }
 
+.btn.btn-rounded.active,
 .btn.btn-rounded:hover,
 .btn.btn-rounded:active {
     background: rgba(0, 0, 0, .8);
@@ -360,7 +362,7 @@ ul#topBar #windowTitle {
     left: calc(35% + 6px);
 }
 .tabBar-secondary,
-.tabBar-secondary #extractBtn {
+.tabBar-secondary #readBtn {
     border-radius: 6px 0 0 0;
 }
 

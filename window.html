@@ -26,13 +26,13 @@
 
                 // set of random parametric filters (totally arbitrary) on cover (default) image(s?)
                 rand = Math.random()
-                ranDeg = rand*360
+                ranDeg = rand*300
                 if(rand > .3 | rand < .7) {
                     pcInvert = 0 + rand*20;
                     contrast = 100 + rand*100;
                 }else {
                     pcInvert = rand*40
-                    contrast = 50 + rand*100;
+                    contrast = 20 + rand*100;
                 }
                 // rand select from css/bg folder
                 wallpaperNumber = Math.ceil(rand*20);
@@ -221,8 +221,8 @@
 
         <!--Save/load image-->
         <ul class="tabBar tabBar-secondary right hidden" id="subnavDataTab">
-            <button id="extractBtn" class="btn btn-disabled" onclick="loadBtn()" disabled>
-                Extract
+            <button id="readBtn" class="btn btn-disabled" onclick="loadBtn()" disabled>
+                Read
             </button>
             <button id="writeBtn" class="btn btn-disabled" onclick="saveBtn()" disabled>
                 Write
@@ -268,7 +268,7 @@
                     
                     <!--Text/Files Radio-->
                     <div class="tab-flex-container" id="textFilesRadioBtn">
-                        <button class="btn btn-rounded btn-active" value="text">
+                        <button class="btn btn-rounded btn-active active" value="text">
                             Text
                         </button>
                         <button class="btn btn-rounded" value="files">
@@ -287,7 +287,7 @@
                         <div class="tab-flex-container hidden" id="filesBtns">
                             <button class="btn btn-rounded" onclick="addBtn()">Add</button>
                             <button class="btn btn-rounded" onclick="filesTable.clear()">Clear</button>
-                            <button class="btn btn-rounded" onclick="extractBtn()">Extract</button>
+                            <button class="btn btn-rounded" onclick="readBtn()">Read</button>
                         </div>
 
                         <!-- File list -->
@@ -354,9 +354,9 @@
                 // preserve natural color for the img, disabling the default random effect
                 cover.style.filter = 'hue-rotate(0deg)';
                 
-                document.querySelector('#extractBtn').classList.remove('btn-disabled');
+                document.querySelector('#readBtn').classList.remove('btn-disabled');
                 document.querySelector('#writeBtn').classList.remove('btn-disabled');
-                document.querySelector('#extractBtn').disabled = false;
+                document.querySelector('#readBtn').disabled = false;
                 document.querySelector('#writeBtn').disabled = false;
             })
 
@@ -411,7 +411,7 @@
                 }
             }
 
-            function extractBtn() {
+            function readBtn() {
                 // fare in modo che estragga tutto?
                 ipcRenderer.send('extract', filesTable.getCompletePaths())
             }
