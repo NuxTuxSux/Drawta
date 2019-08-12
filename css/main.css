@@ -14,6 +14,7 @@ html, body {
     max-height: 100%;
     height: 100%;
     overflow: hidden;
+    font-family: 'Arial';
 }
 .imageCover {
     content: '';
@@ -320,7 +321,7 @@ ul#topBar #windowTitle {
     bottom: 0;
 }
 .tabBar-secondary {
-    bottom: 40px;
+    bottom: 37px;
     /* background: hsla(0, 0%, 100%, 0.4); */
     transform: none;
     width: 65%;
