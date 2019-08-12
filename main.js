@@ -42,7 +42,7 @@ app.on('ready', function () {
 })
 
 ipcMain.on('open', function () {
-    imgpath = dialog.showOpenDialog(window, { properties: ['openFile'], filters: [{name:'PNG Images', extensions:['png']}]})
+    imgpath = dialog.showOpenDialog(window, { properties: ['openFile'], filters: [{name:'PNG Images', extensions:['png','jpg']}]})
     if (!imgpath)
         return
     window.webContents.send('load', imgpath[0])
