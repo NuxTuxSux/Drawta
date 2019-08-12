@@ -45,6 +45,7 @@ ipcMain.on('open', function () {
     imgpath = dialog.showOpenDialog(window, { properties: ['openFile'], filters: [{name:'PNG Images', extensions:['png','jpg']}]})
     if (!imgpath)
         return
+        console.log(imgpath[0])
     window.webContents.send('load', imgpath[0])
     getPixels(imgpath[0], function (err, data) {
         if (err) {
