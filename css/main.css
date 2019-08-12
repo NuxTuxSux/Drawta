@@ -29,7 +29,7 @@ html, body {
     background-position: center;
     z-index: 0;
     float: left;
-    transition: filter 1s 0s;
+    /* transition: filter 20s 0s; */
 }
 /* .imageCover.animated { */
 .imageCover.animated,

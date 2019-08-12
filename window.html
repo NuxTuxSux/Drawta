@@ -22,6 +22,19 @@
                 img = document.getElementById('img')
                 snd = document.getElementById('secondTab')
                 filesBtns = document.getElementById('filesBtns')
+                cover = document.querySelector('#imgCover')
+
+                // set of random parametric filters (totally arbitrary) on cover (default) image(s?)
+                rand = Math.random()
+                ranDeg = rand*360
+                if(rand > .3 | rand < .7) {
+                    pcInvert = 60 + rand*60;
+                    contrast = 100 + rand*100;
+                }else {
+                    pcInvert = rand*100
+                    contrast = 50 + rand*100;
+                }
+                cover.style.filter = 'hue-rotate('+ ranDeg +'deg) invert('+ pcInvert +'%) contrast('+ contrast +'%)';
             }
 
             function firstTabClick() {
@@ -216,7 +229,7 @@
         <!-- <div class="window-content"> -->
 
             <!-- image cover -->
-            <div id="imgCover" class="imageCover"></div>
+            <div id="imgCover" class="imageCover" style="transition: filter 0s;"></div>
             
             <ul id="topBar">
                 <center>
@@ -329,7 +342,14 @@
 
             ipcRenderer.on('load', function (e, data) {
                 //img.setAttribute('src', data)
-                document.querySelector('#imgCover').style.backgroundImage = 'url(' + encodeURI(data) + ')';
+
+                // (NO) makes it a nice eased transition from the default cover img to the uploaded one
+                // cover.style.transition = 'filter 1s 0s'
+                cover.style.backgroundImage = 'url(' + encodeURI(data) + ')';
+
+                // preserve natural color for the img, disabling the default random effect
+                cover.style.filter = 'hue-rotate(0deg)';
+                
                 document.querySelector('#extractBtn').classList.remove('btn-disabled');
                 document.querySelector('#writeBtn').classList.remove('btn-disabled');
                 document.querySelector('#extractBtn').disabled = false;
