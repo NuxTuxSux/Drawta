@@ -25,21 +25,23 @@
             }
 
             function firstTabClick() {
-                document.querySelector('#firstTab').classList.remove('hidden');
+                // document.querySelector('#firstTab').classList.remove('hidden');
                 document.querySelector('#secondTab').classList.add('hidden');
                 document.querySelector('#firstTabBtn').classList.add('btn-active');
                 document.querySelector('#secondTabBtn').classList.remove('btn-active');
                 document.querySelector('#subnavDataTab').classList.add('hidden');
                 document.querySelector('#subnavFileTab').classList.remove('hidden');
+                document.querySelector('#imgCover').classList.remove('blur');
             }
             
             function secondTabClick() {
-                document.querySelector('#firstTab').classList.add('hidden');
+                // document.querySelector('#firstTab').classList.add('hidden');
                 document.querySelector('#secondTab').classList.remove('hidden');
                 document.querySelector('#firstTabBtn').classList.remove('btn-active');
                 document.querySelector('#secondTabBtn').classList.add('btn-active');
                 document.querySelector('#subnavDataTab').classList.remove('hidden');
                 document.querySelector('#subnavFileTab').classList.add('hidden');
+                document.querySelector('#imgCover').classList.add('blur');
             }
 
 
@@ -211,15 +213,15 @@
         </ul>
 
                                     
-        <div class="window-content">
+        <!-- <div class="window-content"> -->
 
             <!-- image cover -->
-            <div id="imgCover" class="imageCover animated"></div>
+            <div id="imgCover" class="imageCover"></div>
             
             <ul id="topBar">
                 <center>
                     <!-- <h3 id="windowTitle">ImgWriter</h3> -->
-                    <h3 id="windowTitle">Mediate</h3>
+                    <h3 id="windowTitle">Drawta</h3>
                 </center>
                 
                 <!-- button minimize window -->
@@ -229,9 +231,9 @@
                 <button onclick="window.close()" class="btn btn-close">+</button>
             </ul>
 
-            <div class="tabs">
+            <!-- <div class="tabs"> -->
 
-                <div id="firstTab" class="firstTab tab">
+                <!-- <div id="firstTab" class="firstTab tab"> -->
                     <!-- <img id="img" src="prova.jpeg" style='object-fit: contain;'> -->
                     
                     <!-- file selector -->
@@ -243,7 +245,7 @@
                             </div>
                         </center>
                     </div> -->
-                </div>
+                <!-- </div> -->
                 
                 <div id="secondTab" class="secondTab tab hidden">
                     
@@ -313,9 +315,9 @@
 
                 </div>
 
-            </div>
+            <!-- </div> -->
 
-        </div>
+        <!-- </div> -->
 
 
         <script>
