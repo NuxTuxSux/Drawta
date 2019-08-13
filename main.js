@@ -1,4 +1,5 @@
 const electron = require('electron')
+const { remote } = require('electron')
 const url = require('url')
 const path = require('path')
 const getPixels = require('get-pixels')

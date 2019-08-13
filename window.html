@@ -10,7 +10,7 @@
         <!-- <script src="js/ui.js"></script> -->
 
         <script>
-            const {ipcRenderer} = require('electron')
+            const { ipcRenderer, remote } = require('electron')
     
             // let img, snd
 
@@ -64,7 +64,7 @@
             }
             
             function coordPercData(percent) {
-                document.querySelector('#dataPc1').style.height = Math.round(percent / 10) + '0%';
+                document.querySelector('#dataPc1').style.height = Math.floor(percent / 10) + '0%';
                 document.querySelector('#dataPc2').style.width = percent % 10 + '0%';
             }
 
@@ -261,7 +261,7 @@
                 </center>
                 
                 <!-- button minimize window -->
-                <button onclick="window.minimize();" class="btn btn-minimize">-</button>
+                <button onclick="remote.getCurrentWindow().minimize();" class="btn btn-minimize">-</button>
                 
                 <!-- button close window -->
                 <button onclick="window.close()" class="btn btn-close">+</button>

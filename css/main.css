@@ -44,7 +44,7 @@ html, body {
     height: 0;
 }
 .imageCover > .dataPercentage#dataPc2 {
-    height: 1%;
+    height: 10%;
 
     /* initial default width (suppose 0% used) */
     width: 0;

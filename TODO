@@ -1,5 +1,7 @@
 TODO
 
+· Add idle/ready state functions
+· show percentage
 
 OPT
  · mettere in basso una status bar
@@ -10,10 +12,10 @@ Bugs
  · la tabella dei file ha problemi di overflow e wrapping con tanto contenuto
  · succedono cose strane se scrivi file e poi testo nella stessa immagine (? sembrava..) 
 
+
 Future
  · markdown text use
  · cifratura dei contenuti (nella UI serve aggiungere una finestra o usiamo una dialog dopo la finestra di salvataggio con la possibilità di pwd vuota per nessuna pwd)
- · riduci a icona
  · tabelle file: Nome - %; dett: Percorso - KB
  · funzione che calcola percentuale immagine usata (la funzione 'coordPercData(%)' crea l'overlay html semitrasparente)
  · LOADING su upload, read, write, extract...
@@ -21,3 +23,4 @@ Future
 DONE
  · partire con il pulsante text "ingrandito", essendo la prima scelta
  · extract per quanto riguarda i files è forse fuorviante, visto che semplicemente legge i dati dalla cartella, forse andrebbe chiamato (sia per text che per files) load o read o decode
+ · riduci a icona
