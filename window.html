@@ -25,7 +25,6 @@
                 cover = document.querySelector('#imgCover')
 
                 // set of random parametric filters (totally arbitrary) on cover (default) image(s)
-
                 ranDeg = Math.floor(Math.random()*320)
                 contrast = 80 + Math.floor(Math.random()*70);
                 pcInvert = (70 + Math.floor(Math.random()*100)/2)%100
@@ -44,7 +43,11 @@
                 document.querySelector('#secondTabBtn').classList.remove('btn-active');
                 document.querySelector('#subnavDataTab').classList.add('hidden');
                 document.querySelector('#subnavFileTab').classList.remove('hidden');
-                document.querySelector('#imgCover').classList.remove('blur');
+                
+                // remove blur from the cover
+                // document.querySelector('#imgCover').classList.remove('blur');
+                document.querySelector('#imgCover').style.filter = document.querySelector('#imgCover').style.filter.replace('blur(7px)',
+                'blur(0px)');
             }
             
             function secondTabClick() {
@@ -54,7 +57,10 @@
                 document.querySelector('#secondTabBtn').classList.add('btn-active');
                 document.querySelector('#subnavDataTab').classList.remove('hidden');
                 document.querySelector('#subnavFileTab').classList.add('hidden');
-                document.querySelector('#imgCover').classList.add('blur');
+                
+                // ad blur to the cover
+                // document.querySelector('#imgCover').classList.add('blur');
+                document.querySelector('#imgCover').style.filter += 'blur(7px)';
             }
             
             function coordPercData(percent) {

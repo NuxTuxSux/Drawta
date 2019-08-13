@@ -24,7 +24,7 @@ app.on('ready', function () {
         minHeight: 500,
         height: 500,
         minWidth: 550,
-        width: 550,
+        width: 700,
         radii: [0,0,0,0],
         // frame: true,
         frame: false,
