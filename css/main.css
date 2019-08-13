@@ -32,27 +32,26 @@ html, body {
     /* background: red; */
     transition: filter 2s 0s;
 }
-/* .imageCover.wall-1 {background-image: url('bg/1.jpeg');}
-.imageCover.wall-2 {background-image: url('bg/2.jpeg');}
-.imageCover.wall-3 {background-image: url('bg/3.jpeg');}
-.imageCover.wall-4 {background-image: url('bg/4.jpeg');}
-.imageCover.wall-5 {background-image: url('bg/5.jpeg');}
-.imageCover.wall-6 {background-image: url('bg/6.jpeg');}
-.imageCover.wall-7 {background-image: url('bg/7.jpeg');}
-.imageCover.wall-8 {background-image: url('bg/8.jpeg');}
-.imageCover.wall-9 {background-image: url('bg/9.jpeg');}
-.imageCover.wall-10 {background-image: url('bg/10.jpeg');}
-.imageCover.wall-11 {background-image: url('bg/11.jpeg');}
-.imageCover.wall-12 {background-image: url('bg/12.jpeg');}
-.imageCover.wall-13 {background-image: url('bg/13.jpeg');}
-.imageCover.wall-14 {background-image: url('bg/14.jpeg');}
-.imageCover.wall-15 {background-image: url('bg/15.jpeg');}
-.imageCover.wall-16 {background-image: url('bg/16.jpeg');}
-.imageCover.wall-17 {background-image: url('bg/17.jpeg');}
-.imageCover.wall-18 {background-image: url('bg/18.jpeg');}
-.imageCover.wall-19 {background-image: url('bg/19.jpeg');}
-.imageCover.wall-20 {background-image: url('bg/20.jpeg');} */
+.imageCover > .dataPercentage {
+    background: rgba(0, 0, 0, .6);
+    float: left;
+    transition: all 1s;
+}
+.imageCover > .dataPercentage#dataPc1 {
+    /* fixed width */
+    width: 100%;
+    /* initial default height (suppose 0% used) */
+    height: 0;
+}
+.imageCover > .dataPercentage#dataPc2 {
+    height: 1%;
 
+    /* initial default width (suppose 0% used) */
+    width: 0;
+    
+    border-bottom-right-radius: 1% 5%;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+}
 
 /* .imageCover.animated { */
 .imageCover.animated,
@@ -311,7 +310,8 @@ ul#topBar {
 
 ul#topBar #windowTitle {
     color: #fff;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, .3);
+    /* text-shadow: 0 1px 8px rgba(0, 0, 0, .3); */
+    text-shadow: 0 1px 10px rgba(0, 0, 0, .24);
     margin: 12px;
 }
 
@@ -401,9 +401,21 @@ ul#topBar #windowTitle {
 }
 
 /* ICONS */
-.icon {
-    height: 32px;
-    width: 32px;
+.svg-icon {
+    height: 22px;
+    width: 22px;
+    filter: invert(90%);
+    position: absolute;
+    transform: translate(-30px, -3px);
+    transition: transform .5s .1s;
+    transform-origin: 50% 50%;
+}
+.btn.btn-rounded .svg-icon {
+    filter: none;
 }
 
-#openfile {background-image: url('icons/folder.png');}
+/* effect */
+.btn:hover .svg-icon {
+    transition: transform .35s;
+    transform: translate(-30px, -3px) scale(1.1);
+}

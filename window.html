@@ -27,7 +27,7 @@
                 // set of random parametric filters (totally arbitrary) on cover (default) image(s)
 
                 ranDeg = Math.floor(Math.random()*320)
-                contrast = 65 + Math.floor(Math.random()*70);
+                contrast = 80 + Math.floor(Math.random()*70);
                 pcInvert = (70 + Math.floor(Math.random()*100)/2)%100
                 
                 // rand select from css/bg folder
@@ -55,6 +55,11 @@
                 document.querySelector('#subnavDataTab').classList.remove('hidden');
                 document.querySelector('#subnavFileTab').classList.add('hidden');
                 document.querySelector('#imgCover').classList.add('blur');
+            }
+            
+            function coordPercData(percent) {
+                document.querySelector('#dataPc1').style.height = Math.round(percent / 10) + '0%';
+                document.querySelector('#dataPc2').style.width = percent % 10 + '0%';
             }
 
 
@@ -196,10 +201,12 @@
             <!-- <li id="stepsTab" class="btn btn-disabled">
                 1/2</li> -->
             <li id="firstTabBtn" class="btn btn-active" onclick="firstTabClick()">
+                <img src="img/medium.svg" class="svg-icon">
                 medium
             </li>
             
             <li id="secondTabBtn" class="btn" onclick="secondTabClick()">
+                <img src="img/data.svg" class="svg-icon">
                 data
             </li>
         </ul>
@@ -210,7 +217,7 @@
         <!-- file upload -->
         <ul class="tabBar tabBar-secondary left" id="subnavFileTab">
             <button id="fileSelect" class="btn bt" onclick="ipcRenderer.send('open')">
-                <!-- <img src="img/folder.png" height="52px" width="52px" alt="folderIcon"> -->
+                <img src="img/folder-open.svg" class="svg-icon">
                 Select file
             </button>
         </ul>
@@ -218,9 +225,11 @@
         <!--Save/load image-->
         <ul class="tabBar tabBar-secondary right hidden" id="subnavDataTab">
             <button id="readBtn" class="btn btn-disabled" onclick="loadBtn()" disabled>
+                <img src="img/read.svg" class="svg-icon">
                 Read
             </button>
             <button id="writeBtn" class="btn btn-disabled" onclick="saveBtn()" disabled>
+                <img src="img/write.svg" class="svg-icon">
                 Write
             </button>
         </ul>
@@ -230,7 +239,14 @@
 
             <!-- image cover -->
             <!-- <div id="imgCover" class="imageCover" style="transition: filter 3s;"></div> -->
-            <div id="imgCover" class="imageCover" style=""></div>
+            <div id="imgCover" class="imageCover" style="">
+                <div class="dataPercentage" id="dataPc1"></div>
+                
+                <div class="dataPercentage" id="dataPc2">
+                    <!-- <div class="dataPercentage" id="dataPc1"></div> -->
+                </div>
+            
+            </div>
             
             <ul id="topBar">
                 <center>
@@ -266,9 +282,11 @@
                     <!--Text/Files Radio-->
                     <div class="tab-flex-container" id="textFilesRadioBtn">
                         <button class="btn btn-rounded btn-active active" value="text">
+                            <img src="img/text.svg" class="svg-icon">
                             Text
                         </button>
                         <button class="btn btn-rounded" value="files">
+                            <img src="img/file.svg" class="svg-icon">
                             Files
                         </button>
                     </div>

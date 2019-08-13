@@ -7,13 +7,14 @@ OPT
 
 Bugs
  · sistemare i fonts
- · c'è la dimensione minima della tabella ma non della finestra
- · la tabella si estende fino a sovrapporsi con i pulsanti più alti, meglio optare per lo scrolling
+ · la tabella dei file ha problemi di overflow e wrapping con tanto contenuto
 
 Future
  · markdown text use
  · cifratura dei contenuti (nella UI serve aggiungere una finestra o usiamo una dialog dopo la finestra di salvataggio con la possibilità di pwd vuota per nessuna pwd)
- · aggiungere le iconeza!
+ · riduci a icona
+ · tabelle file: Nome - %; dett: Percorso - KB
+ · funzione che calcola percentuale immagine usata (la funzione 'coordPercData(%)' crea l'overlay html semitrasparente)
 
 
 DONE

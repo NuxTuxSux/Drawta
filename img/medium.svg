@@ -18,11 +18,11 @@
    viewBox="0 0 512 512"
    enable-background="new 0 0 512 512"
    xml:space="preserve"
-   sodipodi:docname="file.svg"
-   inkscape:export-filename="/home/jake/code/ImgWriter/img/file.png"
+   sodipodi:docname="picture.svg"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   inkscape:export-filename="/home/jake/code/drawta/img/picture.png"
    inkscape:export-xdpi="6"
-   inkscape:export-ydpi="6"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"><metadata
+   inkscape:export-ydpi="6"><metadata
    id="metadata80"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
@@ -40,22 +40,22 @@
    id="namedview76"
    showgrid="false"
    inkscape:zoom="0.4609375"
-   inkscape:cx="104.13559"
+   inkscape:cx="8.6779661"
    inkscape:cy="256"
    inkscape:current-layer="Layer_1" />
 
 <g
    id="g73"
-   style="fill:#ffffff;fill-opacity:1;stroke-width:1.0197531"
-   transform="matrix(0.98062954,0,0,0.98062954,7.1283293,-14.566588)">
+   style="fill:#ffffff;fill-opacity:1">
 	<g
    id="g71"
-   style="fill:#ffffff;fill-opacity:1;stroke-width:1.0197531">
+   style="fill:#ffffff;fill-opacity:1">
 		<path
-   d="M 384,32 H 64 V 480 H 448 V 96 Z m 32,416 H 96 V 64 h 256 v 64 h 64 z M 128,256 H 384 V 224 H 128 Z m 0,64 H 384 V 288 H 128 Z m 0,64 H 384 V 352 H 128 Z"
+   fill-rule="evenodd"
+   clip-rule="evenodd"
+   d="M0,32v448h512V32H0z M480,448H32V64h448V448z M96,160c17.687,0,32-14.33,32-32    s-14.313-32-32-32s-32,14.33-32,32S78.313,160,96,160z M416,256l-32,32l-64-160l-96,192l-64-64L64,416h384L416,256z"
    id="path69"
-   inkscape:connector-curvature="0"
-   style="fill:#ffffff;fill-opacity:1;stroke-width:1.0197531" />
+   style="fill:#ffffff;fill-opacity:1" />
 	</g>
 </g>
 </svg>
