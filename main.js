@@ -179,12 +179,6 @@ function getTarStream() {
     tarStream.put(new Buffer(readBytesFromImage()));
     tarStream.stop()
 
-    //tarStr = readBytesFromImage().toString()
-    //console.log(readBytesFromImage())
-    //const tarStream = new Readable()
-    //tarStream._read = () => {}
-    //tarStream.push(tarStr)
-    //tarStream.push(null)
     return tarStream
 }
 

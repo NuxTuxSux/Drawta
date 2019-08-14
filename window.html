@@ -10,6 +10,25 @@
         <!-- <script src="js/ui.js"></script> -->
 
         <script>
+            // function to inhibit operations while the program is working
+            function blocking(fun) {
+                return function (...args) {
+                    idleOn();
+                    fun(...args);
+                    idleOff();
+                }
+            }
+
+
+            function idleOn() {
+                console.log('before')
+            }
+
+            function idleOff() {
+                console.log('after')
+            }
+
+
             const { ipcRenderer, remote } = require('electron')
     
             // let img, snd
@@ -222,7 +241,7 @@
 
         <!-- file upload -->
         <ul class="tabBar tabBar-secondary left" id="subnavFileTab">
-            <button id="fileSelect" class="btn bt" onclick="ipcRenderer.send('open')">
+            <button id="fileSelect" class="btn bt" onclick="blocking(ipcRenderer.send)('open')">
                 <img src="img/folder-open.svg" class="svg-icon">
                 Select file
             </button>
@@ -230,11 +249,11 @@
 
         <!--Save/load image-->
         <ul class="tabBar tabBar-secondary right hidden" id="subnavDataTab">
-            <button id="readBtn" class="btn btn-disabled" onclick="loadBtn()" disabled>
+            <button id="readBtn" class="btn btn-disabled" onclick="blocking(loadBtn)()" disabled>
                 <img src="img/read.svg" class="svg-icon">
                 Read
             </button>
-            <button id="writeBtn" class="btn btn-disabled" onclick="saveBtn()" disabled>
+            <button id="writeBtn" class="btn btn-disabled" onclick="blocking(saveBtn)()" disabled>
                 <img src="img/write.svg" class="svg-icon">
                 Write
             </button>
@@ -308,7 +327,7 @@
                         <div class="tab-flex-container hidden" id="filesBtns">
                             <button class="btn btn-rounded" onclick="addBtn()">Add</button>
                             <button class="btn btn-rounded" onclick="filesTable.clear()">Clear</button>
-                            <button class="btn btn-rounded" onclick="readBtn()">Extract</button>
+                            <button class="btn btn-rounded" onclick="blocking(readBtn)()">Extract</button>
                         </div>
 
                         <!-- File list -->
