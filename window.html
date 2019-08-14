@@ -88,22 +88,6 @@
             }
 
 
-            // function encodeTabClick() {
-            //     snd.style['display'] = null
-            //     img.style['display'] = 'none'
-            //     if (textFilesRadio.state == 'files')
-            //         filesBtns.style['display'] = null
-            //     document.getElementById('selectTab').className = "btn"
-            //     document.getElementById('encodeTab').className = "btn btn-active"
-            // }
-            // function selectTabClick() {
-            //     snd.style['display'] = 'none'
-            //     img.style['display'] = null
-            //     filesBtns.style['display'] = 'none'
-            //     document.getElementById('encodeTab').className = "btn"
-            //     document.getElementById('selectTab').className = "btn btn-active"
-            // }
-
             // Definiamo una classe che gestisca le righe nella tabella
 
             class TableCtrl {
@@ -223,8 +207,6 @@
 
         <!-- bottom main bar -->
         <ul class="tabBar" id="bottomTabBar">
-            <!-- <li id="stepsTab" class="btn btn-disabled">
-                1/2</li> -->
             <li id="firstTabBtn" class="btn btn-active" onclick="firstTabClick()">
                 <img src="img/medium.svg" class="svg-icon">
                 medium
@@ -263,19 +245,15 @@
         <!-- <div class="window-content"> -->
 
             <!-- image cover -->
-            <!-- <div id="imgCover" class="imageCover" style="transition: filter 3s;"></div> -->
             <div id="imgCover" class="imageCover" style="">
                 <div class="dataPercentage" id="dataPc1"></div>
                 
-                <div class="dataPercentage" id="dataPc2">
-                    <!-- <div class="dataPercentage" id="dataPc1"></div> -->
-                </div>
+                <div class="dataPercentage" id="dataPc2"></div>
             
             </div>
             
             <ul id="topBar">
                 <center>
-                    <!-- <h3 id="windowTitle">ImgWriter</h3> -->
                     <h3 id="windowTitle">Drawta</h3>
                 </center>
                 
@@ -285,22 +263,6 @@
                 <!-- button close window -->
                 <button onclick="window.close()" class="btn btn-close">+</button>
             </ul>
-
-            <!-- <div class="tabs"> -->
-
-                <!-- <div id="firstTab" class="firstTab tab"> -->
-                    <!-- <img id="img" src="prova.jpeg" style='object-fit: contain;'> -->
-                    
-                    <!-- file selector -->
-                    <!-- <div id="fileSelect" class="tabBar-secondary" onclick="ipcRenderer.send('open')">
-                        <center>
-                            <img src="img/folder.png" height="52px" width="52px" alt="folderIcon">
-                            <div id="" class="btn btn-big">
-                                Select file
-                            </div>
-                        </center>
-                    </div> -->
-                <!-- </div> -->
                 
                 <div id="secondTab" class="secondTab tab hidden">
                     
@@ -320,10 +282,8 @@
                         <textarea name="Nome" id="textarea" class="tab-content" placeholder="Type here what you want to write into the image..." autofocus></textarea>
                     </div>
                     
-                    <!-- <div id="filesTableDiv" style="display:none"> -->
                     <div id="filesTableDiv" class="hidden">
                         <!--Files-Pan Buttons-->
-                        <!-- <div class="" id="filesBtns" style="display:none"> -->
                         <div class="tab-flex-container hidden" id="filesBtns">
                             <button class="btn btn-rounded" onclick="addBtn()">Add</button>
                             <button class="btn btn-rounded" onclick="filesTable.clear()">Clear</button>
@@ -331,7 +291,6 @@
                         </div>
 
                         <!-- File list -->
-                        <!-- <table class="table-striped" id="filesTable"></!-->
                         <table class="tab-content" id="filesTable">
                             <thead>
                                 <tr>
@@ -340,55 +299,23 @@
                                     <th>Size</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <!--<tr>
-                                    <td>Table Data</td>
-                                    <td>Table Data</td>
-                                    <td>Table Data</td>
-                                </tr>
-                                <tr>
-                                    <td>Table Data</td>
-                                    <td>Table Data</td>
-                                    <td>Table Data</td>
-                                </tr>
-                                <tr>
-                                    <td>Table Data</td>
-                                    <td>Table Data</td>
-                                    <td>Table Data</td>
-                                </tr>-->
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
-                        
-                    <!--Save/load image-->
-                    <!-- <div class="btn-group btn-group-bottom">
-                        <button class="btn btn-disabled" onclick="saveBtn()" disabled>
-                            Write data
-                        </button>
-                        <button class="btn btn-disabled" onclick="loadBtn()" disabled>
-                            Extract data
-                        </button>
-                    </div> -->
-
                 </div>
 
-            <!-- </div> -->
 
         <!-- </div> -->
 
 
         <script>
-            // filesTable = new TableCtrl(document.getElementById('filesTable'), ['Name', 'Path', 'Size'])            
             filesTable = new TableCtrl(document.getElementById('filesTable'))            
 
             textFilesRadio = new RadioBtnCtrl(document.getElementById('textFilesRadioBtn'))
             
 
             ipcRenderer.on('load', function (e, data) {
-                //img.setAttribute('src', data)
-
-                // (NO) makes it a nice eased transition from the default cover img to the uploaded one
-                // cover.style.transition = 'filter 1s 0s'
+                // makes it a nice eased transition from the default cover img to the uploaded one
                 cover.style.backgroundImage = 'url(' + encodeURI(data) + ')';
 
                 // preserve natural color for the img, disabling the default random effect
@@ -421,16 +348,10 @@
                     document.getElementById('testo').classList.remove('hidden')
                     document.getElementById('filesTableDiv').classList.add('hidden')
                     filesBtns.classList.add('hidden')
-                    // document.getElementById('testo').style['display'] = null
-                    // document.getElementById('filesTableDiv').style['display'] = 'none'
-                    // filesBtns.style['display'] = 'none'
                 } else {
                     document.getElementById('testo').classList.add('hidden')
                     document.getElementById('filesTableDiv').classList.remove('hidden')
                     filesBtns.classList.remove('hidden')
-                    // document.getElementById('testo').style['display'] = 'none'
-                    // document.getElementById('filesTableDiv').style['display'] = null
-                    // filesBtns.style['display'] = snd.style['display']
                 }
             }
 
