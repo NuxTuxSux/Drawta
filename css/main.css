@@ -243,7 +243,10 @@ button.btn {
 
 .btn:hover:not(.btn-big),
 /* .btn.btn-close:hover, */
-.btn:active:not(.btn-big) {
+.btn:active:not(.btn-big),
+.btn:hover:not(.btn-disabled),
+/* .btn.btn-close:hover, */
+.btn:active:not(.btn-disabled) {
 /* .btn.btn-close:active, */
 /* .btn:focus:not(.btn-big) { */
 /* .btn.btn-close:focus { */
@@ -352,7 +355,10 @@ ul#topBar #windowTitle {
 }
 .tabBar > .btn:hover,
 .tabBar > .btn:active,
-.tabBar > .btn:focus {
+.tabBar > .btn:focus,
+.tabBar > .btn:hover:not(.btn-disabled),
+.tabBar > .btn:active:not(.btn-disabled),
+.tabBar > .btn:focus:not(.btn-disabled) {
     background: hsla(0, 0%, 100%, 0.7);
     color: #111;
 }

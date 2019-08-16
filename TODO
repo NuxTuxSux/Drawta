@@ -2,22 +2,21 @@ TODO
 
 
 OPT
- · mettere in basso una status bar
  · la tabella dei files si estende troppo sia verticalmente che orizzontalmente regardless di quel ch'ha tutt'attorno
 
 Bugs
  · la tabella dei file ha problemi di overflow e wrapping con tanto contenuto
  · succedono cose strane se scrivi file e poi testo nella stessa immagine (? sembrava..) 
 
-
 Future
  · markdown text use
  · cifratura dei contenuti (nella UI serve aggiungere una finestra o usiamo una dialog dopo la finestra di salvataggio con la possibilità di pwd vuota per nessuna pwd)
  · tabelle file: Nome - %; dett: Percorso - KB
- · percentuale file su bottone MEDIA
  · LOADING su upload, read, write, extract...
 
 DONE
+ · percentuale file su bottone MEDIA
+ · mettere in basso una status bar
  · Add idle/ready state functions
  · sistemare i fonts
  · funzione che calcola percentuale immagine usata (la funzione 'coordPercData(%)' crea l'overlay html semitrasparente)
