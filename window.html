@@ -15,11 +15,7 @@
                 return function (...args) {
                     idleOn();
                     fun(...args);
-                    // setTimeout(function(){ 
-                        // alert("Hello"); 
-                        idleOff();
-                    // }, 1000);
-                    
+                    idleOff();
                 }
             }
 
@@ -30,8 +26,12 @@
             }
             
             function idleOff() {
-                console.log('closing loading overlay');
-                hide(document.querySelector('#overlay'));
+                setTimeout(function(){ 
+                    console.log('closing loading overlay');
+                    hide(document.querySelector('#overlay'));
+                }, 1000);
+
+                // clearTimeout(delay);
             }
 
 

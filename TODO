@@ -3,8 +3,8 @@ TODO
 
 OPT
 
-
 Bugs
+ · qualcosa non torna con l'apertura della seconda tab, text/files non sono animati solo all'apertura (boh), cambiato con la funzione show/hide (commit: 9d2aec5cf1dbe0718ce21873797033f6ce6a9408)
  · la tabella dei file ha problemi di overflow e wrapping con tanto contenuto
  · succedono cose strane se scrivi file e poi testo nella stessa immagine (? sembrava..) 
 
