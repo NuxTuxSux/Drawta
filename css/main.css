@@ -58,11 +58,11 @@ html, body {
 .imageCover.animated,
 .imageCover.blur {
 /* #secondTab:hover .imageCover.animated { */
-    transition: filter 1s 0s;
+    transition: filter .7s 0s;
     filter: blur(7px) brightness(60%);
 }
 .imageCover.animated:hover {
-    transition: filter 1s .3s;
+    transition: filter .7s .3s;
     filter: none;
 }
 
