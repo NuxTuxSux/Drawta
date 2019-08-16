@@ -293,7 +293,8 @@ ul#topBar #windowTitle {
     /* display: inline; */
     display: flex;
     list-style: none;
-    width: 100%;
+    /* width: 100%; */
+    width: calc(100% + 1px);
     margin: 0;
     padding: 0;
     /* background: #333; */
@@ -410,7 +411,22 @@ ul#topBar #windowTitle {
     left: calc(34% - 20px);
 }
 
-
+.tabBar > .btn > #imgUsage > #usagePcValue {
+    /* position: relative; */
+    position: absolute;
+    /* background: rgba(20, 20, 20, 0.5); */
+    color: #111;
+    font-size: 16px;
+    padding: 10px 12px;
+    bottom: 0px;
+    left: 0;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity .3s;
+}
+.tabBar > .btn > #imgUsage:hover > #usagePcValue {
+    opacity: 1;
+}
 
 /* ICONS */
 .svg-icon {

@@ -91,6 +91,7 @@
             function drawUsage(percent) {
                 if(percent>0 && percent<101) {
                     document.querySelector('#imgUsage').style.width = 'calc('+ percent + '% + '+ percent/5 +'px)';
+                    document.querySelector('#usagePcValue').innerHTML = percent +'%';
                 } else {
                     console.log('invalid percentage');
                 }
@@ -217,7 +218,9 @@
         <!-- bottom main bar -->
         <ul class="tabBar" id="bottomTabBar">
             <li id="firstTabBtn" class="btn btn-active" onclick="firstTabClick()">
-                <div id="imgUsage"></div>
+                <div id="imgUsage">
+                    <span id="usagePcValue"></span>
+                </div>
                 <span>
                     <img src="img/medium.svg" class="svg-icon">
                     image
