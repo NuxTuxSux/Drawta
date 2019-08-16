@@ -2,7 +2,7 @@ TODO
 
 
 OPT
- · la tabella dei files si estende troppo sia verticalmente che orizzontalmente regardless di quel ch'ha tutt'attorno
+
 
 Bugs
  · la tabella dei file ha problemi di overflow e wrapping con tanto contenuto
@@ -12,9 +12,9 @@ Future
  · markdown text use
  · cifratura dei contenuti (nella UI serve aggiungere una finestra o usiamo una dialog dopo la finestra di salvataggio con la possibilità di pwd vuota per nessuna pwd)
  · tabelle file: Nome - %; dett: Percorso - KB
- · LOADING su upload, read, write, extract...
 
 DONE
+ · LOADING su upload, read, write, extract...
  · percentuale file su bottone MEDIA
  · mettere in basso una status bar
  · Add idle/ready state functions

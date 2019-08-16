@@ -21,11 +21,13 @@
 
 
             function idleOn() {
-                console.log('before')
+                console.log('opening loading overlay');
+                show(document.querySelector('#overlay'));
             }
-
+            
             function idleOff() {
-                console.log('after')
+                console.log('closing loading overlay');
+                hide(document.querySelector('#overlay'));
             }
 
 
@@ -57,12 +59,13 @@
             }
 
             function firstTabClick() {
-                // document.querySelector('#firstTab').classList.remove('hidden');
-                document.querySelector('#secondTab').classList.add('hidden');
                 document.querySelector('#firstTabBtn').classList.add('btn-active');
                 document.querySelector('#secondTabBtn').classList.remove('btn-active');
-                document.querySelector('#subnavDataTab').classList.add('hidden');
-                document.querySelector('#subnavFileTab').classList.remove('hidden');
+                // document.querySelector('#firstTab').classList.remove('hidden');
+
+                show(document.querySelector('#secondTab'));
+                show(document.querySelector('#subnavDataTab'));
+                hide(document.querySelector('#subnavFileTab'));
                 
                 // remove blur from the cover
                 // document.querySelector('#imgCover').classList.remove('blur');
@@ -71,15 +74,15 @@
             }
             
             function secondTabClick() {
-                // document.querySelector('#firstTab').classList.add('hidden');
-                document.querySelector('#secondTab').classList.remove('hidden');
                 document.querySelector('#firstTabBtn').classList.remove('btn-active');
                 document.querySelector('#secondTabBtn').classList.add('btn-active');
-                document.querySelector('#subnavDataTab').classList.remove('hidden');
-                document.querySelector('#subnavFileTab').classList.add('hidden');
+                
+                // document.querySelector('#firstTab').classList.add('hidden');
+                show(document.querySelector('#secondTab'));
+                show(document.querySelector('#subnavDataTab'));
+                hide(document.querySelector('#subnavFileTab'));
                 
                 // ad blur to the cover
-                // document.querySelector('#imgCover').classList.add('blur');
                 document.querySelector('#imgCover').style.filter += 'blur(7px)';
             }
             
@@ -89,6 +92,7 @@
                 document.querySelector('#dataPc2').style.width = percent % 10 + '0%';
             }
             
+            // image usage percent of the current image, underlay "image" button
             function drawUsage(percent) {
                 if(percent>0 && percent<101) {
                     percent = percent.toFixed(0)
@@ -99,6 +103,13 @@
                 }
             }
 
+            function hide(element) {
+                element.classList.add('hidden');
+            }
+            
+            function show(element) {
+                element.classList.remove('hidden');
+            }
 
             // Definiamo una classe che gestisca le righe nella tabella
 
@@ -262,7 +273,8 @@
         <!-- <div class="window-content"> -->
 
             <!-- image cover -->
-            <div id="imgCover" class="imageCover" style="">
+            <div id="imgCover" class="imageCover">
+                <!-- PROGRESSBARS 2-DIMENSIONAL, OVERLAY IMG-COVER -->
                 <div class="dataPercentage" id="dataPc1"></div>
                 <div class="dataPercentage" id="dataPc2"></div>
             </div>
@@ -322,7 +334,13 @@
 
         <!-- </div> -->
 
-
+        <div class="overlay hidden" id="overlay">
+            <div class="loading primary"></div>
+            <div class="loading secondary"></div>
+            <center>Loading...</center>
+        </div>
+        
+        
         <script>
             filesTable = new TableCtrl(document.getElementById('filesTable'))            
 
@@ -360,13 +378,13 @@
 
             textFilesRadio.onchange = function () {
                 if (textFilesRadio.state == 'text') {
-                    document.getElementById('testo').classList.remove('hidden')
-                    document.getElementById('filesTableDiv').classList.add('hidden')
-                    filesBtns.classList.add('hidden')
+                    show(document.getElementById('testo'));
+                    hide(document.getElementById('filesTableDiv'));
+                    hide(filesBtns);  
                 } else {
-                    document.getElementById('testo').classList.add('hidden')
-                    document.getElementById('filesTableDiv').classList.remove('hidden')
-                    filesBtns.classList.remove('hidden')
+                    hide(document.getElementById('testo'));
+                    show(document.getElementById('filesTableDiv'));
+                    show(filesBtns);
                 }
             }
 

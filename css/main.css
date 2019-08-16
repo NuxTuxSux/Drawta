@@ -1,3 +1,22 @@
+/* animations */
+@-webkit-keyframes buffering {
+    0% {
+        transform: rotate(0deg);
+    }
+    33% {
+        border-radius: 4px;
+        transform: rotate(90deg);
+    }
+    67% {
+        transform: rotate(180deg);
+    }
+    100% {
+        border-radius: 50% 50%;
+        transform: rotate(270deg);
+    }
+}
+
+
 html * {
     cursor: default;
     -webkit-touch-callout: none;
@@ -415,7 +434,7 @@ ul#topBar #windowTitle {
 .tabBar > .btn-active > span {
     /* dimensioni in base a flex non so perche' qui non funziona (65/2), scelta a occhio */
     /* left: calc(37.5% - 20px); */
-    left: calc(34% - 20px);
+    left: calc(34% - 20px); 
 }
 
 .tabBar > .btn > #imgUsage > #usagePcValue {
@@ -437,6 +456,49 @@ ul#topBar #windowTitle {
 .tabBar > .btn > #imgUsage:hover > #usagePcValue {
     opacity: 1;
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background: rgba(0, 0, 0, .75);
+    transition: all .4s;
+}
+.overlay > center {
+    position: fixed;
+    bottom: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.overlay > .loading {
+    position: fixed;
+    border-radius: 100% 100%;
+    box-shadow: 0 2px 90px -10px rgba(0, 0, 0, .5);
+}
+.overlay > .loading.primary {
+    left: calc(50% - 70px);
+    top: calc(50% - 90px);
+    transform: rotate(0deg);
+    width: 140px;
+    height: 140px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    animation: buffering 2s .05s ease-in-out infinite;
+}
+.overlay > .loading.secondary {
+    animation: buffering 2s ease-in-out infinite;
+    left: calc(50% - 35px);
+    top: calc(50% - 55px);
+    width: 80px;
+    height: 80px;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+}
+
 
 /* ICONS */
 .svg-icon {
