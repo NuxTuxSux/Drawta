@@ -15,7 +15,11 @@
                 return function (...args) {
                     idleOn();
                     fun(...args);
-                    idleOff();
+                    // setTimeout(function(){ 
+                        // alert("Hello"); 
+                        idleOff();
+                    // }, 1000);
+                    
                 }
             }
 
@@ -63,9 +67,9 @@
                 document.querySelector('#secondTabBtn').classList.remove('btn-active');
                 // document.querySelector('#firstTab').classList.remove('hidden');
 
-                show(document.querySelector('#secondTab'));
-                show(document.querySelector('#subnavDataTab'));
-                hide(document.querySelector('#subnavFileTab'));
+                hide(document.querySelector('#secondTab'));
+                hide(document.querySelector('#subnavDataTab'));
+                show(document.querySelector('#subnavFileTab'));
                 
                 // remove blur from the cover
                 // document.querySelector('#imgCover').classList.remove('blur');
