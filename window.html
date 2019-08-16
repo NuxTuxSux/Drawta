@@ -89,8 +89,16 @@
             }
             
             function drawUsage(percent) {
-                document.querySelector('#imgUsage').style.width = percent + '%';
-                document.querySelector('#imgUsage').style.transform = 'translate(-11px, -10px)';
+                if(percent>0 && percent<101) {
+                    // percent/100*20(px) per dargli dim massima 100%, 
+                    document.querySelector('#imgUsage').style.width = 'calc('+ percent + '% + '+ percent/5 +'px)';
+                    // document.querySelector('#imgUsage').style.width = 'calc('+ percent + '% + 20px)';
+                    // document.querySelector('#imgUsage').style.width = percent + '%';
+                //     document.querySelector('#imgUsage').style.transform = 'translate(-11px, -10px)';
+                // } else {
+                //     document.querySelector('#imgUsage').style.width = '0';
+                //     document.querySelector('#imgUsage').style.transform = 'translate(-31px, -10px)';
+                }
             }
 
 

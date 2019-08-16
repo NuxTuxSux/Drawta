@@ -379,18 +379,19 @@ ul#topBar #windowTitle {
     /*rgba(0, 0, 0, .2);*/
     height: 37px;
     margin: 0;
-    padding: 10px;
+    /* padding: 10px; */
+    padding: 0px;
     float: left;
     /* width: calc(64% + 20px); */
     
     /* initial 0% */
     width: 0;
     z-index: 0;
-    /* max-width: calc(100% + 20px); */
-    max-width: 100%;
-    /* transform: translate(-10px, -10px); */
-    transform: translate(-31px, -10px);
-    transition: all .5s;
+    max-width: calc(100% + 20px);
+    /* max-width: 100%; */
+    transform: translate(-11px, -10px);
+    /* transform: translate(-31px, -10px); */
+    transition: width .5s;
 }
 
 .tabBar > .btn > span {
