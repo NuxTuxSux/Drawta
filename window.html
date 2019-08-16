@@ -82,9 +82,15 @@
                 document.querySelector('#imgCover').style.filter += 'blur(7px)';
             }
             
+            // fullscreen bidimensional cover percentage
             function coordPercData(percent) {
                 document.querySelector('#dataPc1').style.height = Math.floor(percent / 10) + '0%';
                 document.querySelector('#dataPc2').style.width = percent % 10 + '0%';
+            }
+            
+            function drawUsage(percent) {
+                document.querySelector('#imgUsage').style.width = percent + '%';
+                document.querySelector('#imgUsage').style.transform = 'translate(-11px, -10px)';
             }
 
 
@@ -208,8 +214,11 @@
         <!-- bottom main bar -->
         <ul class="tabBar" id="bottomTabBar">
             <li id="firstTabBtn" class="btn btn-active" onclick="firstTabClick()">
-                <img src="img/medium.svg" class="svg-icon">
-                medium
+                <div id="imgUsage"></div>
+                <span>
+                    <img src="img/medium.svg" class="svg-icon">
+                    image
+                </span>
             </li>
             
             <li id="secondTabBtn" class="btn" onclick="secondTabClick()">
@@ -247,9 +256,7 @@
             <!-- image cover -->
             <div id="imgCover" class="imageCover" style="">
                 <div class="dataPercentage" id="dataPc1"></div>
-                
                 <div class="dataPercentage" id="dataPc2"></div>
-            
             </div>
             
             <ul id="topBar">

@@ -53,6 +53,7 @@ html, body {
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
 }
 
+
 /* .imageCover.animated { */
 .imageCover.animated,
 .imageCover.blur {
@@ -66,14 +67,8 @@ html, body {
 }
 
 .hidden {
-    /* display: none; */
-    /* z-index: -1; */
-    /* left: 100%; */
     opacity: 0;
-    /* transform: translate(100%); */
-    /* transform-origin: 50% 50%; */
     transition: opacity .6s;
-    /* overflow: hidden; */
     visibility: hidden;
 }
 
@@ -85,7 +80,6 @@ html, body {
     left: 50%;
     top: 45%;
     transform: translate(-50%, -50%);
-    /* z-index: 100; */
 }
 
 .tab-content {
@@ -132,7 +126,6 @@ html, body {
     margin: 50px;
     bottom: 40px;
 }
-
 
 
 /* TABS */
@@ -185,32 +178,6 @@ html, body {
 #filesTableDiv {
     transition: all .4s;
 }
-
-/* #fileSelect {
-    position: absolute;
-    top: calc(50% - 10px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 100% 100%;
-    height: 140px;
-    width: 140px;
-    box-shadow: 0 0 90px -20px rgba(0, 0, 0, 0.65);
-    transition: all .4s;
-}
-#fileSelect:hover,
-#fileSelect:focus,
-#fileSelect:active {
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 0 120px -20px rgba(0, 0, 0, 0.8);
-}
-#fileSelect>center {
-    position: relative;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 47%;
-} */
 
 /* buttons */
 button.btn {
@@ -335,8 +302,9 @@ ul#topBar #windowTitle {
     /* box-shadow: 0 0 80px -2px rgba(0, 0, 0, 1); */
     box-shadow: 0 0 120px -10px rgba(0, 0, 0, .6);
     z-index: 1000;
-    max-height: 40px;
+    max-height: 37px;
     transition: opacity .4s;
+    overflow: hidden;
 }
 .tabBar > button {
     flex: 1;
@@ -401,6 +369,46 @@ ul#topBar #windowTitle {
 .tabBar > .btn-active > a {
     color: inherit;
 }
+
+
+/* image percent usage */
+#imgUsage {
+    top: 0;
+    left: 0;
+    background: red;
+    /*rgba(0, 0, 0, .2);*/
+    height: 37px;
+    margin: 0;
+    padding: 10px;
+    float: left;
+    /* width: calc(64% + 20px); */
+    
+    /* initial 0% */
+    width: 0;
+    z-index: 0;
+    /* max-width: calc(100% + 20px); */
+    max-width: 100%;
+    /* transform: translate(-10px, -10px); */
+    transform: translate(-31px, -10px);
+    transition: all .5s;
+}
+
+.tabBar > .btn > span {
+    position: absolute;
+    /* dimensioni in base a flex non so perche' qui non funziona (35/2), scelta a occhio */
+    left: calc(17.5% + 18px);
+    /* left: 20%; */
+    /* left: 19.5%; */
+    transform: translateX(-50%);
+    transition: left .3s;
+}
+.tabBar > .btn-active > span {
+    /* dimensioni in base a flex non so perche' qui non funziona (65/2), scelta a occhio */
+    /* left: calc(37.5% - 20px); */
+    left: calc(34% - 20px);
+}
+
+
 
 /* ICONS */
 .svg-icon {
