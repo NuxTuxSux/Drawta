@@ -213,7 +213,8 @@ button.btn {
     font-size: 11pt;
 }
 .btn-disabled {
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
+    cursor: no-drop;
 }
 
 

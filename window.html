@@ -90,6 +90,7 @@
             
             function drawUsage(percent) {
                 if(percent>0 && percent<101) {
+                    percent = percent.toFixed(0)
                     document.querySelector('#imgUsage').style.width = 'calc('+ percent + '% + '+ percent/5 +'px)';
                     document.querySelector('#usagePcValue').innerHTML = percent +'%';
                 } else {
