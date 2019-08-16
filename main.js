@@ -55,11 +55,6 @@ ipcMain.on('open', function () {
         }
         imageData = data
     })
-    for(i=1;i<10000000;i++){
-        for(t = 4;t<20;t++)
-            j = Math.random()
-    }
-
 })
 
 ipcMain.on('saveImgTxt', function (err, text) {
