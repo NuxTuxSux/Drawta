@@ -386,7 +386,7 @@ ul#topBar #windowTitle {
     left: 0;
     background: rgba(0, 0, 0, .35);
     /*rgba(0, 0, 0, .2);*/
-    height: 37px;
+    height: 40px;
     margin: 0;
     /* padding: 10px; */
     padding: 0px;
@@ -423,13 +423,16 @@ ul#topBar #windowTitle {
     position: absolute;
     /* background: rgba(20, 20, 20, 0.5); */
     color: #111;
-    font-size: 16px;
-    padding: 10px 12px;
+    font-size: 13px;
+    padding: 11px 13px;
     bottom: 0px;
     left: 0;
+    top: 0;
     opacity: 0;
     z-index: 0;
     transition: opacity .3s;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
 }
 .tabBar > .btn > #imgUsage:hover > #usagePcValue {
     opacity: 1;
