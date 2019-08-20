@@ -375,6 +375,13 @@
                 }
             })
 
+            ipcRenderer.on('idle', function (e, state) {
+                if (state == 'on')
+                    show(document.querySelector('#overlay'));
+                else
+                    hide(document.querySelector('#overlay'));
+            })
+
             ipcRenderer.on('addFile', function (e, rows) {
                 for (let i in rows)
                     filesTable.addRow(rows[i])
