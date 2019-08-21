@@ -44,12 +44,20 @@ app.on('ready', function () {
 
 temporeggia = () => { for(i = 1;i<100000000;i++) t = Math.random() }
 
+function idleOn () {
+    window.webContents.send('idle','on')
+}
+
+function idleOff () {
+    window.webContents.send('idle','off')
+}
+
 ipcMain.on('open', function () {
+    idleOn()
     imgpath = dialog.showOpenDialog(window, { properties: ['openFile'], filters: [{name:'PNG Images', extensions:['png','jpg']}]})
     if (!imgpath)
         return
         console.log(imgpath[0])
-    window.webContents.send('idle','on')
     window.webContents.send('load', imgpath[0])
     getPixels(imgpath[0], function (err, data) {
         if (err) {
@@ -58,7 +66,7 @@ ipcMain.on('open', function () {
         }
         temporeggia()
         imageData = data
-        window.webContents.send('idle','off')
+        idleOff()
     })
 })
 

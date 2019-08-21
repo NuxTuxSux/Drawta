@@ -11,16 +11,16 @@
 
         <script>
             // function to inhibit operations while the program is working
-            function blocking(fun) {
+            /*function blocking(fun) {
                 return function (...args) {
                     idleOn();
                     fun(...args);
                     idleOff();
                 }
-            }
+            }*/
 
 
-            function idleOn() {
+            /*function idleOn() {
                 console.log('opening loading overlay');
                 show(document.querySelector('#overlay'));
             }
@@ -32,7 +32,7 @@
                 //}, 7000);
 
                 // clearTimeout(delay);
-            }
+            }*/
 
 
             const { ipcRenderer, remote } = require('electron')
@@ -255,7 +255,8 @@
 
         <!-- file upload -->
         <ul class="tabBar tabBar-secondary left" id="subnavFileTab">
-            <button id="fileSelect" class="btn bt" onclick="blocking(ipcRenderer.send)('open')">
+        <!--    <button id="fileSelect" class="btn bt" onclick="blocking(ipcRenderer.send)('open')"> -->
+            <button id="fileSelect" class="btn bt" onclick="ipcRenderer.send('open')">
                 <img src="img/folder-open.svg" class="svg-icon">
                 Select file
             </button>
@@ -340,6 +341,7 @@
 
         <div class="overlay hidden" id="overlay">
             <div class="loading primary"></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Mojo_the_zombie.gif" alt="">
             <div class="loading secondary"></div>
             <center>Loading...</center>
         </div>
