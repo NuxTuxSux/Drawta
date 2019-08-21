@@ -30,6 +30,9 @@ app.on('ready', function () {
         // frame: true,
         frame: false,
         transparent: false,
+        webPreferences: {
+            nodeIntegrationInWorker: true
+        }
     })
 
 
@@ -55,8 +58,10 @@ function idleOff () {
 ipcMain.on('open', function () {
     idleOn()
     imgpath = dialog.showOpenDialog(window, { properties: ['openFile'], filters: [{name:'PNG Images', extensions:['png','jpg']}]})
-    if (!imgpath)
+    if (!imgpath) {
+        idleOff()
         return
+    }
         console.log(imgpath[0])
     window.webContents.send('load', imgpath[0])
     getPixels(imgpath[0], function (err, data) {
@@ -68,6 +73,7 @@ ipcMain.on('open', function () {
         imageData = data
         idleOff()
     })
+    console.log(document)
 })
 
 ipcMain.on('saveImgTxt', function (err, text) {

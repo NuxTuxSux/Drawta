@@ -23,3 +23,6 @@ DONE
  · partire con il pulsante text "ingrandito", essendo la prima scelta
  · extract per quanto riguarda i files è forse fuorviante, visto che semplicemente legge i dati dalla cartella, forse andrebbe chiamato (sia per text che per files) load o read o decode
  · riduci a icona
+
+
+ https://electronjs.org/docs/api/browser-window#showing-window-gracefully
