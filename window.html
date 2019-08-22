@@ -340,10 +340,11 @@
         <!-- </div> -->
 
         <div class="overlay hidden" id="overlay">
-            <div class="loading primary"></div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Mojo_the_zombie.gif" alt="">
-            <div class="loading secondary"></div>
-            <center>Loading...</center>
+            <!-- <center>Loading...</center> -->
+            <!-- <div class="loading primary"></div> -->
+            <img src="img/hourglass.png" alt="">
+            <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Mojo_the_zombie.gif" alt=""> -->
+            <!-- <div class="loading secondary"></div> -->
         </div>
         
         
@@ -378,10 +379,11 @@
             })
 
             ipcRenderer.on('idle', function (e, state) {
-                if (state == 'on')
+                if (state == 'on') {
                     show(document.querySelector('#overlay'));
-                else
+                } else {
                     hide(document.querySelector('#overlay'));
+                }
             })
 
             ipcRenderer.on('addFile', function (e, rows) {

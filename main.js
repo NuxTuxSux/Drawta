@@ -73,7 +73,7 @@ ipcMain.on('open', function () {
         imageData = data
         idleOff()
     })
-    console.log(document)
+    // console.log(document)
 })
 
 ipcMain.on('saveImgTxt', function (err, text) {
