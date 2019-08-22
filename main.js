@@ -47,17 +47,24 @@ app.on('ready', function () {
 
 temporeggia = () => { for(i = 1;i<100000000;i++) t = Math.random() }
 
+wait = ms => { t0 = new Date(); while (new Date() - t0 < ms) {} }
+
 function idleOn () {
     window.webContents.send('idle','on')
 }
 
 function idleOff () {
+    wait(1000)
     window.webContents.send('idle','off')
 }
 
 ipcMain.on('open', function () {
     idleOn()
-    imgpath = dialog.showOpenDialog(window, { properties: ['openFile'], filters: [{name:'PNG Images', extensions:['png','jpg']}]})
+
+    imgpath = dialog.showOpenDialog(window, { properties: ['openFile'], filters: [{name:'PNG Images', extensions:['png','jpg','jpeg']}]});
+
+    idleOff()
+
     if (!imgpath) {
         idleOff()
         return
@@ -69,7 +76,7 @@ ipcMain.on('open', function () {
             console.log('Bad image')
             return
         }
-        temporeggia()
+        //temporeggia()
         imageData = data
         idleOff()
     })

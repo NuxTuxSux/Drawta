@@ -476,10 +476,10 @@ ul#topBar #windowTitle {
     z-index: 10000;
     background: rgba(0, 0, 0, .5);
     transition: all .4s;
-    animation: idleOn 0s ease-out;
+    animation: idleOn 1s ease-out;
 }
 .overlay.hidden {
-    animation: idleOff .2s ease-out;
+    animation: idleOff 1s ease-out;
 }
 .overlay > center {
     position: fixed;
