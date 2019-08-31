@@ -265,11 +265,13 @@
 
         <!--Save/load image-->
         <ul class="tabBar tabBar-secondary right hidden" id="subnavDataTab">
-            <button id="readBtn" class="btn btn-disabled" onclick="blocking(loadBtn)()" disabled>
+                <!-- <button id="readBtn" class="btn btn-disabled" onclick="blocking(loadBtn)()" disabled> -->
+            <button id="readBtn" class="btn btn-disabled" onclick="loadBtn()" disabled>
                 <img src="img/read.svg" class="svg-icon">
                 Read
             </button>
-            <button id="writeBtn" class="btn btn-disabled" onclick="blocking(saveBtn)()" disabled>
+            <!-- <button id="writeBtn" class="btn btn-disabled" onclick="blocking(saveBtn)()" disabled> -->
+            <button id="writeBtn" class="btn btn-disabled" onclick="saveBtn()" disabled>
                 <img src="img/write.svg" class="svg-icon">
                 Write
             </button>
@@ -342,10 +344,10 @@
 
         <div class="overlay hidden" id="overlay">
             <!-- <center>Loading...</center> -->
-            <!-- <div class="loading primary"></div> -->
-            <img src="img/hourglass.png" alt="">
+            <div class="loading primary"></div>
+            <!-- <img src="img/hourglass.png" alt=""> -->
             <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Mojo_the_zombie.gif" alt=""> -->
-            <!-- <div class="loading secondary"></div> -->
+            <div class="loading secondary"></div>
         </div>
         
         

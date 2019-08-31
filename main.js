@@ -54,7 +54,7 @@ function idleOn () {
 }
 
 function idleOff () {
-    wait(1000)
+    //wait(1000)
     window.webContents.send('idle','off')
 }
 
@@ -69,18 +69,18 @@ ipcMain.on('open', function () {
         idleOff()
         return
     }
-        console.log(imgpath[0])
+    console.log(imgpath[0])
     window.webContents.send('load', imgpath[0])
     getPixels(imgpath[0], function (err, data) {
         if (err) {
             console.log('Bad image')
             return
         }
+        //wait(2000)
         //temporeggia()
         imageData = data
         idleOff()
     })
-    // console.log(document)
 })
 
 ipcMain.on('saveImgTxt', function (err, text) {
