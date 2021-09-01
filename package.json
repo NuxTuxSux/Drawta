@@ -15,7 +15,7 @@
     "save-pixels": "^2.3.4",
     "stream": "0.0.2",
     "stream-buffers": "^3.0.2",
-    "tar": "^4.4.6",
+    "tar": "^4.4.18",
     "zeros": "^1.0.0"
   },
   "devDependencies": {
